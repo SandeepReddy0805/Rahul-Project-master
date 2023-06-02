@@ -14,6 +14,18 @@
     <title>Medicine and Pill Alert</title>
   </head>
   <body>
+    <script>
+      function validate(){
+        var phone = document.getElementById('phone').value;
+            if(phone.match(/^[0-9]{10}$/)){
+                // alert("Entered a valid phone number");
+            }
+            else{
+                alert("Please enter a valid phone number")
+            }
+
+      }
+    </script>
     <div class="d-flex align-items-center">
       <div class="title d-flex align-items-center justify-content-center">
         <div class="my-auto title-inside">
@@ -24,10 +36,11 @@
       <div
         class="form-container d-flex align-items-center justify-content-center bg-success p-5"
       >
-        <form>
+        <form action="/">
           <div class="mb-3 input-box">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input
+              required
               type="text"
               class="form-control"
             />
@@ -37,6 +50,7 @@
               >Email address</label
             >
             <input
+              required
               type="email"
               class="form-control"
               id="exampleInputEmail1"
@@ -48,6 +62,7 @@
               >Password</label
             >
             <input
+              required
               type="password"
               class="form-control"
               shoid="exampleInputPassword1"
@@ -58,15 +73,15 @@
               >Phone Number</label
             >
             <input
+              id="phone"
+              required
               type="tel"
               class="form-control"
-              pattern="^\d{10}$"
-              oninvalid="this.setCustomValidity('Please enter a 10 digit number')"
-              
             />
           </div>
           <div class="mb-3 form-check">
             <input
+              required
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
@@ -75,7 +90,7 @@
               >Check me out</label
             >
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" onclick="validate()">Submit</button>
         </form>
       </div>
     </div>
