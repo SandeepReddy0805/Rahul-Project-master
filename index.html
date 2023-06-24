@@ -11,9 +11,33 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <script defer src="index.js"></script>
     <title>Medicine and Pill Alert</title>
   </head>
   <body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBGXSjzeQlp_LClh1IT_61bE10tSHax_N4",
+        authDomain: "medi-alert-7a1db.firebaseapp.com",
+        projectId: "medi-alert-7a1db",
+        storageBucket: "medi-alert-7a1db.appspot.com",
+        messagingSenderId: "1020616235863",
+        appId: "1:1020616235863:web:db5b00581d70f442a13c12",
+        measurementId: "G-H9HGN7SP8G"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
     <script>
       function validate(){
         var phone = document.getElementById('phone').value;
@@ -26,6 +50,7 @@
 
       }
     </script>
+
     <div class="d-flex align-items-center">
       <div class="title d-flex align-items-center justify-content-center">
         <div class="my-auto title-inside">
@@ -36,32 +61,33 @@
       <div
         class="form-container d-flex align-items-center justify-content-center bg-success p-5"
       >
-        <form action="/">
+        <form onsubmit="register">
           <div class="mb-3 input-box">
-            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <label for="name" class="form-label">Name</label>
             <input
+            id="name"
               required
               type="text"
               class="form-control"
             />
           </div>
           <div class="mb-3 input-box">
-            <label for="exampleInputEmail1" class="form-label"
+            <label for="email" class="form-label"
               >Email address</label
             >
             <input
               required
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="email"
               aria-describedby="emailHelp"
             />
           </div>
           <div class="mb-3 input-box">
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="password" class="form-label"
               >Password</label
             >
-            <input
+            <input id="password"
               required
               type="password"
               class="form-control"
@@ -69,7 +95,7 @@
             />
           </div>
           <div class="mb-3 input-box">
-            <label for="exampleInputEmail1" class="form-label"
+            <label for="phone" class="form-label"
               >Phone Number</label
             >
             <input
@@ -79,18 +105,8 @@
               class="form-control"
             />
           </div>
-          <div class="mb-3 form-check">
-            <input
-              required
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Check me out</label
-            >
+          <button type="submit" class="btn btn-primary">Submit</button>
           </div>
-          <button type="submit" class="btn btn-primary" onclick="validate()">Submit</button>
         </form>
       </div>
     </div>
